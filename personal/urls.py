@@ -6,6 +6,7 @@ from .routers import CustomReadOnlyRouter
 
 router = routers.DefaultRouter()
 router_dinc = CustomReadOnlyRouter()
+
 router.register(r'personnel', PersonalMVS)
 router.register(r'', DepartmantGetMVS)
 router_dinc.register(r'department', DepartmantDinamicMVS)
