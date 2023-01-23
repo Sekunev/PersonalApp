@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r font-sekune;
+  }
+}
+
+@layer components {
+  .registerInput {
+    @apply px-5 py-2.5 rounded-md bg-[#FEDEFF]/10 text-[#93C6E7] font-semibold focus:outline-none focus:bg-[#FBFACD] transition-all duration-300 focus:text-[#7F669D] placeholder:text-yellow-400;
+  }
+
+  .inputDiv {
+    @apply relative;
+  }
+  .errorMessage {
+    @apply absolute text-xs text-red-100 top-[50px];
+  }
+  .submitButton {
+    @apply rounded-md py-2.5 bg-yellow-700 text-[#bcc] font-bold transition-all hover:bg-yellow-600 mt-6;
+  }
+}
