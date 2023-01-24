@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,6 +15,7 @@ const BASE_URL = "http://127.0.0.1:8000/";
 const useAuthCall = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState([]);
 
   const register = async (userInfo) => {
     dispatch(fetchStart());
@@ -21,9 +23,11 @@ const useAuthCall = () => {
       const { data } = await axios.post(`${BASE_URL}users/register/`, userInfo);
       dispatch(registerSuccess(data));
       console.log(data);
+      localStorage.setItem("isActive", true);
       navigate("/");
     } catch (error) {
       console.log(error);
+      setErrorMessage(error.response.data);
       dispatch(fetchFail());
     }
   };
@@ -41,6 +45,7 @@ const useAuthCall = () => {
       navigate("/");
     } catch (error) {
       console.log(error);
+      setErrorMessage(error.response.data);
       dispatch(fetchFail());
     }
   };
@@ -57,7 +62,7 @@ const useAuthCall = () => {
       dispatch(fetchFail());
     }
   };
-  return { login, logout, register };
+  return { login, logout, register, errorMessage };
 };
 
 export default useAuthCall;

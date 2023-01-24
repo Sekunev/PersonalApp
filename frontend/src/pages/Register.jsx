@@ -24,7 +24,7 @@ const registerSchema = yup.object().shape({
 });
 
 const Register = () => {
-  const { register } = useAuthCall();
+  const { register, errorMessage } = useAuthCall();
   const { handleChange, handleSubmit, values, errors } = useFormik({
     initialValues: {
       username: "",
@@ -76,6 +76,11 @@ const Register = () => {
               <p className="absolute text-xs text-red-700 top-[40px]">
                 {errors.username || ""}
               </p>
+              {errorMessage?.username && (
+                <p className="absolute text-xs text-red-700 top-[40px]">
+                  {errorMessage?.username[0]}
+                </p>
+              )}
             </div>
             <div className="form-group mb-6 relative">
               <input
@@ -189,6 +194,11 @@ const Register = () => {
             <p className="absolute text-xs text-red-700 top-[40px]">
               {errors.password || ""}
             </p>
+            {errorMessage?.password && (
+              <p className="absolute text-xs text-red-700 top-[40px]">
+                {errorMessage?.password[0]}
+              </p>
+            )}
           </div>
           <div className="form-group mb-6 relative">
             <input
@@ -217,26 +227,27 @@ const Register = () => {
               {errors.password2 || ""}
             </p>
           </div>
+
           <button
             type="submit"
-            className="
-w-full
-px-6
-py-2.5
-bg-blue-600
-text-white
-font-medium
-text-xs
-leading-tight
-uppercase
-rounded
-shadow-md
-hover:bg-blue-700 hover:shadow-lg
-focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-active:bg-blue-800 active:shadow-lg
-transition
-duration-150
-ease-in-out"
+            className="mt-2
+            w-full
+            px-6
+            py-2.5
+            bg-[#ff8806]
+            text-white
+            font-medium
+            text-xs
+            leading-tight
+            uppercase
+            rounded
+            shadow-md
+            hover:bg-[#ffd106] hover:shadow-lg
+            focus:bg-[#ff6106] focus:shadow-lg focus:outline-none focus:ring-0
+            active:bg-[#ff4006] active:shadow-lg
+            transition
+            duration-150
+            ease-in-out"
           >
             Sign up
           </button>

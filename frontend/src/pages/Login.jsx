@@ -25,7 +25,7 @@ const registerSchema = yup.object().shape({
 });
 
 const Login = () => {
-  const { login } = useAuthCall();
+  const { login, errorMessage } = useAuthCall();
   const { handleChange, handleSubmit, values, errors } = useFormik({
     initialValues: {
       username: "",
@@ -45,7 +45,6 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center flex-col mt-[10%]">
       <h1 className="font-bold text-2xl">Login</h1>
-
       <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-4">
@@ -106,13 +105,19 @@ const Login = () => {
               {errors.password || ""}
             </p>
           </div>
+          {errorMessage?.non_field_errors && (
+            <h3 className="font-sekune text-center m-4">
+              {errorMessage.non_field_errors}
+            </h3>
+          )}
+
           <button
             type="submit"
             className="
 w-full
 px-6
 py-2.5
-bg-blue-600
+bg-[#ffb600]
 text-white
 font-medium
 text-xs
@@ -120,9 +125,9 @@ leading-tight
 uppercase
 rounded
 shadow-md
-hover:bg-blue-700 hover:shadow-lg
-focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-active:bg-blue-800 active:shadow-lg
+hover:bg-[#ff7300] hover:shadow-lg
+focus:bg-[#ff3300] focus:shadow-lg focus:outline-none focus:ring-0
+active:bg-[#ff1100] active:shadow-lg
 transition
 duration-150
 ease-in-out"
@@ -136,7 +141,7 @@ ease-in-out"
 w-full
 px-6
 py-2.5
-bg-red-600
+bg-[#ff8806]
 text-white
 font-medium
 text-xs
@@ -144,9 +149,9 @@ leading-tight
 uppercase
 rounded
 shadow-md
-hover:bg-blue-700 hover:shadow-lg
-focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-active:bg-blue-800 active:shadow-lg
+hover:bg-[#ffd106] hover:shadow-lg
+focus:bg-[#ff6106] focus:shadow-lg focus:outline-none focus:ring-0
+active:bg-[#ff4006] active:shadow-lg
 transition
 duration-150
 ease-in-out"

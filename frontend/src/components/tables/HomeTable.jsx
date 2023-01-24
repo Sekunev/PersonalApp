@@ -16,9 +16,9 @@ const HomeTable = () => {
     <div className="flex justify-center mt-6">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 inline-block  sm:px-6 lg:px-8">
-          <div className="overflow-hidden border-4 rounded-md">
-            <table className="min-w-full ">
-              <thead className="bg-gray-100 border-b ">
+          <div className="overflow-hidden border-[#ffd10646] border-4 rounded-md">
+            <table className="min-w-full">
+              <thead className="bg-[#ffd10646] border-b ">
                 <tr>
                   <th
                     scope="col"

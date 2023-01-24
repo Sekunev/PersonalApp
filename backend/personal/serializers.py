@@ -67,7 +67,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
 class DepartmantDinamicSerializer(serializers.ModelSerializer):
     personal_count = serializers.SerializerMethodField()
     personals = PersonalSerializer(many=True, required=True)
-    id = serializers.StringRelatedField()
+    # id = serializers.StringRelatedField()
 
     class Meta:
         model = Department

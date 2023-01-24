@@ -33,6 +33,6 @@ class Personal(models.Model):
     created_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.get_gender_display()
+        return self.first_name
 
 
