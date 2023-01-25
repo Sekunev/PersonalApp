@@ -1,10 +1,10 @@
-# Backend
-
 # Full Stack Project Personal App- Backend
 
 ### Visualization of the Website
 
-![image](https://github.com/Sekunev/TutorialApp/blob/main/client/assest/AnimationProject.gif)
+![image](https://github.com/Sekunev/PersonalApp/blob/main/frontend/src/assets/AnimationProject.gif)
+
+# Backend
 
 ```
 # KURULUM KOMUTLARI
